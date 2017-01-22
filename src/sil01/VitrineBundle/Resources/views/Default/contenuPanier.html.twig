@@ -1,0 +1,34 @@
+{% extends "sil01VitrineBundle::layout.html.twig" %}
+
+ {% block content %}
+    <link href="{{ asset('bundles/Sil01Vitrine/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    
+    <h1>Contenu de votre panier</h1>
+   {% set Total = 0%}
+    <table>
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+            <tr>
+        </thead>
+        
+        <tbody>
+            {% for item in panier  %}
+            <tr>
+                <td> {{item['nom']}} </td>
+                <td> {{item['quantité']}}</td>
+                <td> {{item['prix']}} €</td>
+                <td> <a href="{{ path('sil01_vitrine_supprimeArticle', {'id': item['id'] , 'quantite': '1'}) }}"> <img src="http://img.clubic.com/04158780-photo-minibin-logo-mikeklo.jpg" alt="" width="20" height="20"/></a></td>
+                {%set Total = Total + item['prix']%}
+            </tr>
+            {% endfor %}
+            <tr>
+                <th> Total : </th>
+                <td></td>
+                <th> {{Total}} €</th>
+            </tr>
+        </tbody>
+    </table>
+ {% endblock %}

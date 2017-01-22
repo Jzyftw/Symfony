@@ -1,0 +1,27 @@
+{% extends "sil01VitrineBundle::layout.html.twig" %}
+
+
+    {% block content %}
+    <link href="{{ asset('bundles/Sil01Vitrine/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    <h1> Articles </h1>
+    <table>
+        <tbody>
+            <tr>
+                <th></th>
+                <th>Dénomination</th>
+                <th>Prix en €</th>
+                <th>Articles en stock</th>
+            </tr>
+        {% for article in Articles %}
+            <tr>
+                <td><img src="{{ article.getImagePath() }}" alt="" width="150" height="150">
+                <td>{{ article.getName() }}</td>   
+                <td>{{ article.getPrice() }}</td>
+                <td>{{ article.getStock() }}</td>
+                <td> <a href="{{ path('sil01_vitrine_ajoutPanier', {'id': article.getId() , 'quantite': '1'}) }}"> Ajouter au panier </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+   

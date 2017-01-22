@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Patates list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Sexe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for patate in patates %}
+            <tr>
+                <td><a href="{{ path('patate_show', { 'id': patate.id }) }}">{{ patate.id }}</a></td>
+                <td>{{ patate.name }}</td>
+                <td>{% if patate.sexe %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('patate_show', { 'id': patate.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('patate_edit', { 'id': patate.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('patate_new') }}">Create a new patate</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+## YAML Template.
+---
+sil01\VitrineBundle\Entity\Categorie:
+    type: entity
+    table: categorie 
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO } 
+    fields:
+        name:
+            type: string
+            length: 100
+    article:
+        targetentity: article
+        joinColumn:
+                name: article_id
+                referencedColumnName: id
+            
+            
+            
+    

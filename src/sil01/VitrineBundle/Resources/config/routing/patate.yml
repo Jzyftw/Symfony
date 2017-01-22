@@ -1,0 +1,24 @@
+patate_index:
+    path:     /
+    defaults: { _controller: "sil01VitrineBundle:Patate:index" }
+    methods:  GET
+
+patate_show:
+    path:     /{id}/show
+    defaults: { _controller: "sil01VitrineBundle:Patate:show" }
+    methods:  GET
+
+patate_new:
+    path:     /new
+    defaults: { _controller: "sil01VitrineBundle:Patate:new" }
+    methods:  [GET, POST]
+
+patate_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sil01VitrineBundle:Patate:edit" }
+    methods:  [GET, POST]
+
+patate_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sil01VitrineBundle:Patate:delete" }
+    methods:  DELETE

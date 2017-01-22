@@ -1,0 +1,32 @@
+sil01_vitrine_patate:
+    resource: "@sil01VitrineBundle/Resources/config/routing/patate.yml"
+    prefix:   /patate
+
+sil01_vitrine_homepage:
+    path:     /index/
+    defaults: { _controller: sil01VitrineBundle:Default:accueil }
+
+sil01_vitrine_mentions:
+    path:     /mentions/
+    defaults: { _controller: sil01VitrineBundle:Default:mentions }
+
+sil01_vitrine_catalogue:
+    path:     /catalogue/
+    defaults: { _controller: sil01VitrineBundle:Default:catalogue }
+
+sil01_vitrine_articlesParCategorie:
+    path: /articlesParCategorie/{id}
+    defaults: { _controller: sil01VitrineBundle:Default:articlesParCategorie }
+    
+sil01_vitrine_contenuPanier:
+    path:    /panier/
+    defaults: { _controller: sil01VitrineBundle:Panier:contenuPanier }
+    
+sil01_vitrine_ajoutPanier:
+    path:   /panier/ajout/{id}/{quantite}
+    defaults: { _controller: sil01VitrineBundle:Panier:ajoutArticle }
+    
+sil01_vitrine_supprimeArticle:
+    path:   /panier/supprimer/{id}/
+    defaults: { _controller: sil01VitrineBundle:Panier:supprimeArticle }
+    

@@ -1,0 +1,24 @@
+## YAML Template.
+---
+sil01\VitrineBundle\Entity\LigneDeCommande:
+    type: entity
+    table: ligneDeCommande 
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO } 
+    fields:
+        client:
+            type: string
+            length: 100
+        date:
+            type: date
+        state:
+            type: boolean
+    manyToOne:
+        commande:
+            targetEntity: sil01\VitrineBundle\Entity\Commande
+            inversedBy: ligneDeCommandes
+            joinColumn:
+                name: categorie_id
+                referencedColumnName: id

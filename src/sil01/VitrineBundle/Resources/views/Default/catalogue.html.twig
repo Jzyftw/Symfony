@@ -1,0 +1,21 @@
+{% extends "sil01VitrineBundle::layout.html.twig" %}
+
+    {% block content %}
+    <link href="{{ asset('bundles/Sil01Vitrine/css/style.css') }}" rel="stylesheet" type="text/css"/>
+    <h1>Liste des catégories</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for categorie in categories %}
+                <tr>             
+                    <td> <a href="{{ path('sil01_vitrine_articlesParCategorie', {'id':categorie.id})}}">{{ categorie.name }} </a> </td>   
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+   
