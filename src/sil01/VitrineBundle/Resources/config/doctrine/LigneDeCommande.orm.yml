@@ -15,10 +15,12 @@ sil01\VitrineBundle\Entity\LigneDeCommande:
             type: date
         state:
             type: boolean
+        article:
+            type: integer
     manyToOne:
         commande:
             targetEntity: sil01\VitrineBundle\Entity\Commande
             inversedBy: ligneDeCommandes
             joinColumn:
-                name: categorie_id
+                name: commande_id
                 referencedColumnName: id

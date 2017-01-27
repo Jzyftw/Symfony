@@ -4,6 +4,8 @@ namespace sil01\VitrineBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use sil01\VitrineBundle\Entity\Panier;
+use sil01\VitrineBundle\Entity\LigneDeCommande;
+use sil01\VitrineBundle\Entity\Commande;
 
 class PanierController extends Controller {
     
@@ -34,6 +36,7 @@ class PanierController extends Controller {
         return $this->redirectToRoute('sil01_vitrine_contenuPanier');
     }
     
+    
     //Supprime l'article identifié par $id du panier
      function supprimeArticleAction($id){
         $panier = $this->exists();
@@ -52,12 +55,54 @@ class PanierController extends Controller {
         return $panier;
     }
     
-    function viderPanier(){
+    function viderPanierAction(){
         $panier = $this->exists();
         $panier->viderPanier();
     }
     
+    function validerPanierAction(){
+        //On récupère le panier
+        $panier = $this->exists();
+        
+        //On crée une nouvelle commande
+        $commande = new Commande();
+        $username = $this->getUser()->getUsername();
+        
+        $commande->setClient($username);
+        $commande->setDate(new \DateTime());
+        $commande->setState(true);
+        
+        $this->getDoctrine()->getManager()->persist($commande);
+        $this->getDoctrine()->getManager()->flush();
+        
+        //On remplit ligne de commande avec le contenu du panier
+        foreach($panier->getContenu() as $value){
+            $ligneCommande = new LigneDeCommande();             
+            $ligneCommande->setArticle($value['id']);
+            $ligneCommande->setCommande($commande);
+            $ligneCommande->setClient($username);
+            $ligneCommande->setDate(new \DateTime());
+            $ligneCommande->setState(true);
+            $ligneCommande->setNumber($value['quantite']);
+            
+            $this->getDoctrine()->getManager()->persist($ligneCommande);      
+        }
+        
+        $this->getDoctrine()->getManager()->flush();
+        
+        //On vide le panier
+        $this->viderPanierAction();
+        
+        return $this->render('sil01VitrineBundle:Default:confirmation.html.twig');
+    }
     
+    //fonction qui affiche le panier sur chaque page
+    function afficherPanierAction(){
+        //On récupère le panier en session
+        $panier = $this->exists();
+        return $this->render('sil01VitrineBundle:Default:cart.html.twig',array('panier' => $panier->getContenu()));
+    }
+   
 }
 
 

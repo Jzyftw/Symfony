@@ -30,12 +30,12 @@ class LigneDeCommande
     private $state;
 
     /**
-     * @var \sil01\VitrineBundle\Entity\Article
+     * @var integer
      */
     private $article;
 
     /**
-     * @var \sil01\VitrineBundle\Entity\Commande
+     * @var integer 
      */
     private $commande;
 
@@ -129,7 +129,7 @@ class LigneDeCommande
      * @param \sil01\VitrineBundle\Entity\Article $article
      * @return LigneDeCommande
      */
-    public function setArticle(\sil01\VitrineBundle\Entity\Article $article = null)
+    public function setArticle($article)
     {
         $this->article = $article;
 
@@ -149,10 +149,10 @@ class LigneDeCommande
     /**
      * Set commande
      *
-     * @param \sil01\VitrineBundle\Entity\Commande $commande
+     * @param integer $commande
      * @return LigneDeCommande
      */
-    public function setCommande(\sil01\VitrineBundle\Entity\Commande $commande = null)
+    public function setCommande($commande)
     {
         $this->commande = $commande;
 

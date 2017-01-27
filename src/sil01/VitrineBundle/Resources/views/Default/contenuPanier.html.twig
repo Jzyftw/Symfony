@@ -18,9 +18,9 @@
             {% for item in panier  %}
             <tr>
                 <td> {{item['nom']}} </td>
-                <td> {{item['quantité']}}</td>
+                <td> {{item['quantite']}}</td>
                 <td> {{item['prix']}} €</td>
-                <td> <a href="{{ path('sil01_vitrine_supprimeArticle', {'id': item['id'] , 'quantite': '1'}) }}"> <img src="http://img.clubic.com/04158780-photo-minibin-logo-mikeklo.jpg" alt="" width="20" height="20"/></a></td>
+                <td> <a href="{{ path('sil01_vitrine_supprimeArticle', {'id': item['id']}) }}"> <img src="http://img.clubic.com/04158780-photo-minibin-logo-mikeklo.jpg" alt="" width="20" height="20"/></a></td>
                 {%set Total = Total + item['prix']%}
             </tr>
             {% endfor %}
@@ -28,6 +28,11 @@
                 <th> Total : </th>
                 <td></td>
                 <th> {{Total}} €</th>
+            </tr>
+            <tr>
+                <td></td>
+                <th><a href="{{ path('sil01_vitrine_validationPanier') }}">Commander</a></th>
+                <td></td>
             </tr>
         </tbody>
     </table>

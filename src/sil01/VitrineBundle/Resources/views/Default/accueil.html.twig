@@ -1,5 +1,12 @@
 {% extends "sil01VitrineBundle::layout.html.twig" %}
 
 {% block content %}
-<h1>Hello!</h1>
+<link href="{{ asset('bundles/Sil01Vitrine/css/style.css') }}" rel="stylesheet" type="text/css"/>
+<h1>Bienvenue sur My Awesome Shop !</h1>
+{% endblock %}
+
+{%block cart %}
+    <fieldset class="cart">
+        {{ render(controller('sil01VitrineBundle:Panier:afficherPanier')) }}
+    </fieldset>
 {% endblock %}

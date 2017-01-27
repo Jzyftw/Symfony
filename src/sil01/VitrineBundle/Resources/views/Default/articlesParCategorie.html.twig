@@ -24,4 +24,10 @@
         </tbody>
     </table>
     {% endblock %}
+    
+    {%block cart %}
+    <fieldset class="cart">
+        {{ render(controller('sil01VitrineBundle:Panier:afficherPanier')) }}
+    </fieldset>
+    {% endblock %}
    

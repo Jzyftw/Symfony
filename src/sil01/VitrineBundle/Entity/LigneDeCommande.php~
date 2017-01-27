@@ -30,7 +30,7 @@ class LigneDeCommande
     private $state;
 
     /**
-     * @var \sil01\VitrineBundle\Entity\Article
+     * @var integer
      */
     private $article;
 
@@ -39,6 +39,10 @@ class LigneDeCommande
      */
     private $commande;
 
+    /**
+     * @var integer
+     */
+    private $number;
 
     /**
      * Get id
@@ -125,7 +129,7 @@ class LigneDeCommande
      * @param \sil01\VitrineBundle\Entity\Article $article
      * @return LigneDeCommande
      */
-    public function setArticle(\sil01\VitrineBundle\Entity\Article $article = null)
+    public function setArticle($article)
     {
         $this->article = $article;
 
@@ -163,5 +167,30 @@ class LigneDeCommande
     public function getCommande()
     {
         return $this->commande;
+    }
+    
+
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     * @return LigneDeCommande
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer 
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }

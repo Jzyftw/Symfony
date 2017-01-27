@@ -3,26 +3,24 @@
 namespace sil01\VitrineBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Client
  */
-class Client
+class Client extends BaseUser
 {
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $mail;
+    //constructeur
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
 
 
     /**
@@ -35,49 +33,4 @@ class Client
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Client
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set mail
-     *
-     * @param string $mail
-     * @return Client
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    /**
-     * Get mail
-     *
-     * @return string 
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
 }

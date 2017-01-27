@@ -2,7 +2,6 @@
 
 namespace sil01\VitrineBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Commande
@@ -25,7 +24,7 @@ class Commande
     private $date;
 
     /**
-     * @var string
+     * @var boolean
      */
     private $state;
 
@@ -89,7 +88,7 @@ class Commande
     /**
      * Set state
      *
-     * @param string $state
+     * @param boolean $state
      * @return Commande
      */
     public function setState($state)
@@ -102,7 +101,7 @@ class Commande
     /**
      * Get state
      *
-     * @return string 
+     * @return boolean 
      */
     public function getState()
     {

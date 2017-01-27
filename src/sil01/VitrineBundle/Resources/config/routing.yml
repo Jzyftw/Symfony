@@ -1,6 +1,10 @@
-sil01_vitrine_patate:
-    resource: "@sil01VitrineBundle/Resources/config/routing/patate.yml"
-    prefix:   /patate
+sil01_vitrine_commande:
+    resource: "@sil01VitrineBundle/Resources/config/routing/commande.yml"
+    prefix:   /commande
+    
+sil01_vitrine_client:
+    resource: "@sil01VitrineBundle/Resources/config/routing/client.yml"
+    prefix:   /client
 
 sil01_vitrine_homepage:
     path:     /index/
@@ -29,4 +33,8 @@ sil01_vitrine_ajoutPanier:
 sil01_vitrine_supprimeArticle:
     path:   /panier/supprimer/{id}/
     defaults: { _controller: sil01VitrineBundle:Panier:supprimeArticle }
+    
+sil01_vitrine_validationPanier:
+    path:   /panier/validation
+    defaults: { _controller: sil01VitrineBundle:Panier:validerPanier }
     
